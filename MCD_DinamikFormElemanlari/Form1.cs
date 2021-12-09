@@ -62,7 +62,26 @@ namespace MCD_DinamikFormElemanlari
 
         private void BtnTemp_Click(object sender, EventArgs e)
         {
-           //eğer 
+            //eğer 3 kez mayına basıldı ise form üzerinde bulunan tüm butonları pasif edin ve uygulama bitti şeklinde bir mesaj verin.
+            Button basilanButon = (Button)sender;
+            bool mayinBulundumu = (bool)basilanButon.Tag;
+
+            if (mayinBulundumu)
+            {
+                MessageBox.Show("Mayını buldunuz tebrikler.");
+                basilanButon.BackColor = Color.Red;
+                int mayinInt = int.Parse(lblMayin.Text);
+                mayinInt++;
+                lblMayin.Text = mayinInt.ToString();
+            }
+            else
+            {
+                basilanButon.BackColor = Color.Green;
+                int skorInt = int.Parse(lblSkor.Text);
+                skorInt++;
+                lblSkor.Text = skorInt.ToString();
+            }
+
         }
     }
 }
